@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Minnie 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(160deg, #2d1b33, #4a1942, #6b2150, #4a1942, #2d1b33);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+            overflow-x: hidden;
+            font-family: 'Georgia', serif;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-radius: 30px;
+            padding: 3rem 2.5rem;
+            max-width: 550px;
+            text-align: center;
+            box-shadow: 0 20px 80px rgba(255, 105, 180, 0.25), 0 0 40px rgba(255, 182, 193, 0.15);
+            border: 2px solid rgba(255, 182, 193, 0.5);
+            animation: floatIn 1.5s ease-out;
+        }
+
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .heart-icon {
+            font-size: 3rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.05); }
+        }
+
+        .message-box h1 {
+            color: #d63384;
+            font-size: 2rem;
+            margin: 1rem 0;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        .message-box p {
+            color: #6d4c6e;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-top: 1rem;
+        }
+
+        .message-box .signature {
+            margin-top: 2rem;
+            color: #d63384;
+            font-size: 1.3rem;
+            font-style: italic;
+        }
+
+        /* Carousel */
+        .carousel-section {
+            margin-top: 3rem;
+            max-width: 900px;
+            width: 100%;
+            z-index: 2;
+            position: relative;
+        }
+
+        .carousel-title {
+            text-align: center;
+            color: #fff;
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .carousel-track-container {
+            overflow: hidden;
+            border-radius: 20px;
+            flex: 1;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1rem;
+            transition: transform 0.5s ease;
+            cursor: grab;
+        }
+
+        .carousel-track:active {
+            cursor: grabbing;
+        }
+
+        .carousel-slide {
+            min-width: 280px;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.25);
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .carousel-slide:hover {
+            transform: scale(1.03);
+            border-color: rgba(255, 182, 193, 0.7);
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 105, 180, 0.3);
+            transform: scale(1.1);
+        }
+
+        .carousel-caption {
+            text-align: center;
+            color: #ffffff;
+            font-style: italic;
+            margin-top: 1.5rem;
+            margin-bottom: 6rem;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 600px) {
+            .carousel-slide {
+                min-width: 220px;
+                height: 280px;
+            }
+            .carousel-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 1.2rem;
+            }
+            .carousel-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 182, 193, 0.2);
+            object-fit: contain;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .lightbox-nav {
+                font-size: 1.8rem;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Flowers */
+        .flower {
+            position: fixed;
+            font-size: 2rem;
+            animation: fallDown linear infinite;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        @keyframes fallDown {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Butterflies */
+        .butterfly {
+            position: fixed;
+            font-size: 1.8rem;
+            z-index: 3;
+            animation: fly linear infinite;
+            opacity: 0.9;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(100px, -50px) rotate(10deg) scale(1.1);
+            }
+            50% {
+                transform: translate(200px, 20px) rotate(-5deg) scale(0.9);
+            }
+            75% {
+                transform: translate(100px, -30px) rotate(8deg) scale(1.05);
+            }
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+        }
+
+        /* Fireflies */
+        .firefly {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ffe4a3;
+            box-shadow: 0 0 10px #ffe4a3, 0 0 25px #ffcc66, 0 0 50px #ffdd88;
+            z-index: 3;
+            animation: fireflyFloat linear infinite, fireflyGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes fireflyFloat {
+            0% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(80px, -60px);
+            }
+            50% {
+                transform: translate(-40px, -100px);
+            }
+            75% {
+                transform: translate(60px, -40px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes fireflyGlow {
+            from {
+                opacity: 0.4;
+                box-shadow: 0 0 8px #ffe4a3, 0 0 15px #ffcc66;
+            }
+            to {
+                opacity: 1;
+                box-shadow: 0 0 20px #ffe4a3, 0 0 40px #ffcc66, 0 0 60px #ffdd88;
+            }
+        }
+
+        /* Petals floating */
+        .petal {
+            position: fixed;
+            width: 12px;
+            height: 18px;
+            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+            border-radius: 50% 50% 50% 0;
+            z-index: 1;
+            opacity: 0.7;
+            animation: petalFall linear infinite;
+        }
+
+        @keyframes petalFall {
+            0% {
+                transform: translateY(-50px) rotate(0deg) translateX(0);
+                opacity: 0;
+            }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% {
+                transform: translateY(110vh) rotate(720deg) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Bottom garden */
+        .garden {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .garden-flower {
+            font-size: 2.5rem;
+            animation: sway 3s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        /* Moon */
+        .moon {
+            position: fixed;
+            top: 40px;
+            right: 60px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fffde7, #fff9c4, #ffecb3);
+            box-shadow: 0 0 30px #fff9c4, 0 0 60px #ffecb3, 0 0 100px rgba(255, 249, 196, 0.4);
+            z-index: 2;
+            animation: moonGlow 4s ease-in-out infinite alternate;
+        }
+
+        .moon::after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 18px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255, 236, 179, 0.5);
+            box-shadow: 30px 25px 0 8px rgba(255, 236, 179, 0.3), 10px 50px 0 5px rgba(255, 236, 179, 0.4);
+        }
+
+        @keyframes moonGlow {
+            from {
+                box-shadow: 0 0 30px #fff9c4, 0 0 60px #ffecb3, 0 0 100px rgba(255, 249, 196, 0.3);
+            }
+            to {
+                box-shadow: 0 0 40px #fff9c4, 0 0 80px #ffecb3, 0 0 130px rgba(255, 249, 196, 0.5);
+            }
+        }
+
+        /* Running mice */
+        .mouse {
+            position: fixed;
+            bottom: 80px;
+            font-size: 2rem;
+            z-index: 4;
+            animation: mouseRun linear infinite;
+        }
+
+        .mouse.left-to-right {
+            animation-name: mouseRunLTR;
+        }
+
+        .mouse.right-to-left {
+            animation-name: mouseRunRTL;
+            transform: scaleX(-1);
+        }
+
+        @keyframes mouseRunLTR {
+            0% {
+                left: -50px;
+                bottom: 80px;
+            }
+            15% {
+                bottom: 95px;
+            }
+            30% {
+                bottom: 80px;
+            }
+            45% {
+                bottom: 90px;
+            }
+            60% {
+                bottom: 80px;
+            }
+            75% {
+                bottom: 95px;
+            }
+            90% {
+                bottom: 80px;
+            }
+            100% {
+                left: 110vw;
+                bottom: 80px;
+            }
+        }
+
+        @keyframes mouseRunRTL {
+            0% {
+                right: -50px;
+                bottom: 80px;
+            }
+            15% {
+                bottom: 95px;
+            }
+            30% {
+                bottom: 80px;
+            }
+            45% {
+                bottom: 90px;
+            }
+            60% {
+                bottom: 80px;
+            }
+            75% {
+                bottom: 95px;
+            }
+            90% {
+                bottom: 80px;
+            }
+            100% {
+                right: 110vw;
+                bottom: 80px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .moon {
+                width: 70px;
+                height: 70px;
+                top: 20px;
+                right: 20px;
+            }
+        }
+        .mickey-minnie {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mickey-head, .minnie-head {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        .mickey-head::before, .mickey-head::after,
+        .minnie-head::before, .minnie-head::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: #333;
+            border-radius: 50%;
+            top: -10px;
+        }
+
+        .mickey-head::before, .minnie-head::before {
+            left: -6px;
+        }
+
+        .mickey-head::after, .minnie-head::after {
+            right: -6px;
+        }
+
+        .minnie-bow {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 36px;
+            height: 18px;
+            z-index: 5;
+        }
+
+        .minnie-bow::before, .minnie-bow::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 14px;
+            background: #ff4081;
+            border-radius: 50%;
+            top: 2px;
+        }
+
+        .minnie-bow::before {
+            left: 0;
+            transform: rotate(-15deg);
+        }
+
+        .minnie-bow::after {
+            right: 0;
+            transform: rotate(15deg);
+        }
+
+        .minnie-bow-center {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ff4081;
+            border-radius: 50%;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 6;
+        }
+
+        .bow-dots::before, .bow-dots::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .bow-dots::before {
+            top: 6px;
+            left: 4px;
+        }
+
+        .bow-dots::after {
+            top: 6px;
+            right: 4px;
+        }
+
+        .mickey-minnie-heart {
+            font-size: 1.5rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            margin: 0 0.3rem;
+        }
+
+        @media (max-width: 600px) {
+            .message-box {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+            .message-box h1 {
+                font-size: 1.5rem;
+            }
+            .message-box p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Moon -->
+    <div class="moon"></div>
+
+    <div class="container">
+        <div class="message-box">
+            <div class="mickey-minnie">
+                <div class="mickey-head"></div>
+                <span class="mickey-minnie-heart">❤️</span>
+                <div class="minnie-head">
+                    <div class="minnie-bow">
+                        <span class="bow-dots"></span>
+                        <span class="minnie-bow-center"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="heart-icon">💗</div>
+            <h1>Hey Minnie 🎀</h1>
+            <p>
+                No matter how tough today feels, remember — we're in this together.
+                You and me, always. Every storm passes, and I'll be right here
+                holding your hand through all of it.
+            </p>
+            <p>
+                You are stronger than you think, braver than you believe,
+                and more loved than you'll ever know. Don't give up, my love.
+                We're going to make it through — I promise you that.
+            </p>
+            <p>
+                On the days you feel like you can't, just come back here
+                and remember: your Mickey believes in you with everything he has. 🌸
+            </p>
+            <p class="signature">
+                — Your Mickey loves you endlessly 💕
+            </p>
+        </div>
+
+        <!-- Photo Carousel -->
+        <div class="carousel-section">
+            <p class="carousel-title">Our Moments Together �</p>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn" id="carousel-prev">&#10094;</button>
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="carousel-track">
+                        <div class="carousel-slide"><img src="photos/0bb7c4f8-d690-4e4c-8992-2cf8b7501ae6.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/0f4983a2-fec8-4eb6-9da7-1fd5beaecfb4.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/13a7dbf7-f930-42c3-bc85-8ede33085d8a.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/181a7bac-7738-4d41-aafe-9462331be70e.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/1ef6c7df-e136-4301-ad1e-7a8be64753d2.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/23049ba6-d383-4bcc-aebe-5d181c544e8c.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/25e1e105-ed7e-4afe-ae68-e9946e128bdc.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/2cdefa53-372e-40d4-9b72-fb66b4757778.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/3b40fd95-0a6f-4e67-b330-febed0bda8f0.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/3daaa18a-4e82-4fee-af9e-17a31993b70e.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/3f2630ba-3125-40da-b810-a98d97bdce6f.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/5128e44c-c5eb-4a5f-aa59-50df051df6b4.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/6523fecc-0da0-4072-9385-fb4ff8401f07.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/6ac4b21d-de63-4c8b-a972-07d5decbe0e2.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/729cf276-8a23-4fb2-93fc-28247fac75bb.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/7cf95216-2109-4823-98e2-8800a0ad0bc8.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/a9bcaeea-c198-4b9f-ae7e-a4a9075885fa.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/ac41e8f8-057a-44c6-b7f7-fc5f7c99aff3.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/cba3f96f-0fc7-4c5f-9885-e66ae6917738.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/cc0bb477-12b6-43d5-b457-2d98f2196762.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/d14e7fa2-83b9-4978-b8e8-ad5962b903b0.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/d65f4cab-d081-40b9-bc8f-02ec2f573a63.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/e41f2463-a762-4e47-9c32-daabca01ccc8.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/f476139c-606b-4c05-9d70-32492dd1e0fb.jpg" alt="Us"></div>
+                        <div class="carousel-slide"><img src="photos/fbf5f7e2-d712-410c-a3a6-0e32085a61b1.jpg" alt="Us"></div>
+                    </div>
+                </div>
+                <button class="carousel-btn" id="carousel-next">&#10095;</button>
+            </div>
+            <p class="carousel-caption">Every moment with you is my favorite 🌸</p>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</span>
+        <img src="" alt="Photo" id="lightbox-img">
+        <span class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</span>
+    </div>
+
+    <!-- Garden at the bottom -->
+    <div class="garden" id="garden"></div>
+
+    <script>
+        // Carousel functionality
+        const track = document.getElementById('carousel-track');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+        let carouselPos = 0;
+        const slideWidth = 296; // 280px + 16px gap
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${carouselPos * slideWidth}px)`;
+        }
+
+        function getVisibleSlides() {
+            const containerWidth = track.parentElement.offsetWidth;
+            return Math.floor(containerWidth / slideWidth);
+        }
+
+        nextBtn.addEventListener('click', () => {
+            const maxPos = slides.length - getVisibleSlides();
+            carouselPos = Math.min(carouselPos + 1, maxPos);
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            carouselPos = Math.max(carouselPos - 1, 0);
+            updateCarousel();
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+            if (diff > 50) {
+                const maxPos = slides.length - getVisibleSlides();
+                carouselPos = Math.min(carouselPos + 1, maxPos);
+                updateCarousel();
+            } else if (diff < -50) {
+                carouselPos = Math.max(carouselPos - 1, 0);
+                updateCarousel();
+            }
+        });
+
+        // Click to open in lightbox
+        slides.forEach((slide, index) => {
+            slide.addEventListener('click', () => {
+                currentIndex = index;
+                lightboxImg.src = slide.querySelector('img').src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        let currentIndex = 0;
+
+        lightboxClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lightbox.classList.remove('active');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
+
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            lightboxImg.src = slides[currentIndex].querySelector('img').src;
+        });
+
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % slides.length;
+            lightboxImg.src = slides[currentIndex].querySelector('img').src;
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') lightbox.classList.remove('active');
+            if (e.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                lightboxImg.src = slides[currentIndex].querySelector('img').src;
+            }
+            if (e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % slides.length;
+                lightboxImg.src = slides[currentIndex].querySelector('img').src;
+            }
+        });
+
+        // Create falling flowers
+        const flowerEmojis = ['🌸', '🌺', '🌷', '🌹', '💮', '🤍', '🌼', '🤍', '🌷', '💮'];
+        const butterflyEmojis = ['🦋', '🦋', '🦋'];
+
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.textContent = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.fontSize = (1.5 + Math.random() * 1.5) + 'rem';
+            flower.style.animationDuration = (6 + Math.random() * 6) + 's';
+            flower.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(flower);
+
+            setTimeout(() => flower.remove(), 14000);
+        }
+
+        // Create butterflies
+        function createButterfly() {
+            const butterfly = document.createElement('div');
+            butterfly.className = 'butterfly';
+            butterfly.textContent = butterflyEmojis[Math.floor(Math.random() * butterflyEmojis.length)];
+            butterfly.style.left = Math.random() * 80 + 'vw';
+            butterfly.style.top = Math.random() * 70 + 'vh';
+            butterfly.style.animationDuration = (8 + Math.random() * 8) + 's';
+            butterfly.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(butterfly);
+
+            setTimeout(() => {
+                butterfly.remove();
+                createButterfly();
+            }, 16000 + Math.random() * 5000);
+        }
+
+        // Create fireflies
+        function createFirefly() {
+            const firefly = document.createElement('div');
+            firefly.className = 'firefly';
+            firefly.style.left = Math.random() * 100 + 'vw';
+            firefly.style.top = Math.random() * 100 + 'vh';
+            firefly.style.animationDuration = (6 + Math.random() * 10) + 's';
+            firefly.style.width = (5 + Math.random() * 6) + 'px';
+            firefly.style.height = firefly.style.width;
+            document.body.appendChild(firefly);
+
+            setTimeout(() => {
+                firefly.remove();
+                createFirefly();
+            }, 10000 + Math.random() * 8000);
+        }
+
+        // Create floating petals
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = (8 + Math.random() * 7) + 's';
+            petal.style.animationDelay = Math.random() * 3 + 's';
+            const colors = [
+                'linear-gradient(135deg, #ffb6c1, #ff69b4)',
+                'linear-gradient(135deg, #ffc0cb, #ff85a2)',
+                'linear-gradient(135deg, #fff0f5, #ffb6c1)',
+                'linear-gradient(135deg, #ffffff, #ffc0cb)',
+                'linear-gradient(135deg, #ffffff, #fff0f5)',
+                'linear-gradient(135deg, #ffffff, #ffe6f0)'
+            ];
+            petal.style.background = colors[Math.floor(Math.random() * colors.length)];
+            document.body.appendChild(petal);
+
+            setTimeout(() => petal.remove(), 16000);
+        }
+
+        // Create bottom garden
+        function createGarden() {
+            const garden = document.getElementById('garden');
+            const gardenFlowers = ['🌷', '🌹', '🤍', '🌸', '🌺', '🌷', '🤍', '🌹', '💮', '🌼', '🌷', '🤍', '🌹', '🌸', '🌺', '🌷', '🤍', '🌹', '💮', '🌷', '🤍', '🌹', '🌸', '🌺'];
+            gardenFlowers.forEach((f, i) => {
+                const el = document.createElement('span');
+                el.className = 'garden-flower';
+                el.textContent = f;
+                el.style.animationDelay = (i * 0.2) + 's';
+                garden.appendChild(el);
+            });
+        }
+
+        // Create running mice
+        function createMouse() {
+            const mouse = document.createElement('div');
+            mouse.className = 'mouse';
+            const goingRight = Math.random() > 0.5;
+            mouse.textContent = '🐭';
+
+            if (goingRight) {
+                mouse.classList.add('left-to-right');
+            } else {
+                mouse.classList.add('right-to-left');
+            }
+
+            mouse.style.animationDuration = (6 + Math.random() * 5) + 's';
+            mouse.style.bottom = (75 + Math.random() * 20) + 'px';
+            document.body.appendChild(mouse);
+
+            setTimeout(() => {
+                mouse.remove();
+            }, 12000);
+        }
+
+        // Initialize
+        createGarden();
+
+        // Spawn flowers periodically
+        setInterval(createFlower, 800);
+        for (let i = 0; i < 5; i++) setTimeout(createFlower, i * 300);
+
+        // Spawn petals periodically
+        setInterval(createPetal, 1200);
+        for (let i = 0; i < 4; i++) setTimeout(createPetal, i * 400);
+
+        // Create butterflies
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createButterfly, i * 1500);
+        }
+
+        // Create fireflies
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createFirefly, i * 600);
+        }
+
+        // Spawn mice periodically
+        setInterval(createMouse, 4000);
+        setTimeout(createMouse, 1000);
+        setTimeout(createMouse, 2500);
+    </script>
+</body>
+</html>
