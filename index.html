@@ -130,11 +130,6 @@
             display: flex;
             gap: 1rem;
             transition: transform 0.5s ease;
-            cursor: grab;
-        }
-
-        .carousel-track:active {
-            cursor: grabbing;
         }
 
         .carousel-slide {
@@ -201,8 +196,11 @@
 
         @media (max-width: 600px) {
             .carousel-slide {
-                min-width: 220px;
-                height: 280px;
+                min-width: calc(100vw - 140px);
+                height: 400px;
+            }
+            .carousel-track {
+                gap: 0;
             }
             .carousel-btn {
                 width: 38px;
@@ -211,6 +209,9 @@
             }
             .carousel-title {
                 font-size: 1.2rem;
+            }
+            .carousel-wrapper {
+                gap: 0.5rem;
             }
         }
 
@@ -613,7 +614,7 @@
 
         .minnie-bow {
             position: absolute;
-            top: -18px;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
             width: 36px;
@@ -787,25 +788,39 @@
         const prevBtn = document.getElementById('carousel-prev');
         const nextBtn = document.getElementById('carousel-next');
         let carouselPos = 0;
-        const slideWidth = 296; // 280px + 16px gap
 
-        function updateCarousel() {
-            track.style.transform = `translateX(-${carouselPos * slideWidth}px)`;
+        function getSlideWidth() {
+            const slide = slides[0];
+            const gap = parseInt(getComputedStyle(track).gap) || 0;
+            return slide.offsetWidth + gap;
         }
 
         function getVisibleSlides() {
             const containerWidth = track.parentElement.offsetWidth;
-            return Math.floor(containerWidth / slideWidth);
+            return Math.max(1, Math.floor(containerWidth / getSlideWidth()));
+        }
+
+        function updateCarousel() {
+            const slideWidth = getSlideWidth();
+            track.style.transform = `translateX(-${carouselPos * slideWidth}px)`;
         }
 
         nextBtn.addEventListener('click', () => {
             const maxPos = slides.length - getVisibleSlides();
-            carouselPos = Math.min(carouselPos + 1, maxPos);
+            if (carouselPos < maxPos) {
+                carouselPos++;
+            } else {
+                carouselPos = 0;
+            }
             updateCarousel();
         });
 
         prevBtn.addEventListener('click', () => {
-            carouselPos = Math.max(carouselPos - 1, 0);
+            if (carouselPos > 0) {
+                carouselPos--;
+            } else {
+                carouselPos = slides.length - getVisibleSlides();
+            }
             updateCarousel();
         });
 
@@ -829,6 +844,9 @@
                 updateCarousel();
             }
         });
+
+        // Recalculate on resize
+        window.addEventListener('resize', updateCarousel);
 
         // Click to open in lightbox
         slides.forEach((slide, index) => {
